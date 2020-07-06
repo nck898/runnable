@@ -17,11 +17,11 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView timer, status ;
+    TextView timer, status, runCyclesText ;
     Button start, pause, reset;
     long MillisecondTime, StartTime, TimeBuff, UpdateTime = 0L ;
     Handler handler;
-    int Seconds, Minutes, MilliSeconds, runCounter;
+    int Seconds, Minutes, MilliSeconds, runCycles = 0;
     boolean running = true;
     Vibrator v;
 
@@ -36,8 +36,10 @@ public class MainActivity extends AppCompatActivity {
         pause = (Button)findViewById(R.id.btPause);
         reset = (Button)findViewById(R.id.btReset);
         status = (TextView)findViewById(R.id.status);
+        runCyclesText = (TextView)findViewById(R.id.runCycles);
 
-        status.setText("Gotta go fast!");
+
+        status.setText("Dyanmic Entry!!!");
         handler = new Handler() ;
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
@@ -49,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
                 handler.postDelayed(runnable, 0);
 
                 reset.setEnabled(false);
+                status.setText("running!");
+                runCycles = 1;
+                runCyclesText.setText("Run Cycles: " + runCycles);
 
             }
         });
@@ -69,6 +74,19 @@ public class MainActivity extends AppCompatActivity {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MillisecondTime = SystemClock.uptimeMillis() - StartTime;
+
+                UpdateTime = TimeBuff + MillisecondTime;
+
+                Seconds = (int) (UpdateTime / 1000);
+
+                Minutes = Seconds / 60;
+
+                Seconds = Seconds % 60;
+
+                MilliSeconds = (int) (UpdateTime % 1000);
+
+                status.setText("Time ran was " + Minutes + ":"  + String.format("%02d", Seconds) + ":" + String.format("%03d", MilliSeconds));
 
                 MillisecondTime = 0L ;
                 StartTime = 0L ;
@@ -79,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
                 MilliSeconds = 0 ;
 
                 timer.setText("00:00:00");
-                status.setText("Good run mate!");
+                runCycles = 0;
+                runCyclesText.setText("Run Cycles Reset");
 
             }
         });
@@ -103,23 +122,24 @@ public class MainActivity extends AppCompatActivity {
 
             MilliSeconds = (int) (UpdateTime % 1000);
 
-            if(running) { //if you're supposed to be running
+            if(!running) { //if you're supposed to be running
                 if ((Seconds-3)%4 == 0) {
+                    v.vibrate(100);
+                    running = true;
+                    status.setText("walkin!");
 
-                    v.vibrate(500);
-
-                    running = false;
-                    status.setText("running");
-                    //Log.d("Run", "Run Working, seconds:" + Seconds);
 
                 }
             } else {
                 if (Seconds%4 == 0) {
-                    //vibrate twice
-                    v.vibrate(500);
-                    running = true;
-                    status.setText("walkin!");
-                    //Log.d("Rest", "Rest working, seconds:" + Seconds);
+
+                    v.vibrate(100);
+
+                    running = false;
+                    status.setText("running");
+                    //Log.d("Run", "Run Working, seconds:" + Seconds);
+                    runCycles += 1;
+                    runCyclesText.setText("Run Cycles: " + runCycles);
                 }
             }
 
