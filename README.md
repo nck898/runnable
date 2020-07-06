@@ -27,4 +27,4 @@ THrough hard work and determination, Might Guy rose to become one of the most le
 It might sound corny to you...but Might Guy really does motivate me. As a kid, he taught me that I didn't have to be the smartest, the funniest, the most naturally talented.  
 Might Guy taught me that my greatest superpower was my own will-power. 
 
-![](runnable.jpg)
+![](smaller_runnable.jpg)
