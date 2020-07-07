@@ -123,17 +123,17 @@ public class MainActivity extends AppCompatActivity {
             MilliSeconds = (int) (UpdateTime % 1000);
 
             if(!running) { //if you're supposed to be running
-                if ((Seconds-3)%4 == 0) {
-                    v.vibrate(100);
+                if ((Minutes-3)%4 == 0) {
+                    v.vibrate(500);
                     running = true;
                     status.setText("walkin!");
 
 
                 }
             } else {
-                if (Seconds%4 == 0) {
+                if (Minutes%4 == 0) {
 
-                    v.vibrate(100);
+                    v.vibrate(500);
 
                     running = false;
                     status.setText("running");

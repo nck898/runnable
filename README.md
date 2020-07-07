@@ -28,3 +28,12 @@ It might sound corny to you...but Might Guy really does motivate me. As a kid, h
 Might Guy taught me that my greatest superpower was my own will-power. 
 
 ![](smaller_runnable.jpg)
+
+
+### notes on first run, 07/06  
+-Accidentally hitting the reset/start button???? Suxxxx  
+-kinda sucks having to hold the phone in a way where the screen is on and your fingers have to be careful about hitting the buttons. I accidentally hit reset or start or something around 40 minutes. Huge bummer.  
+-sucks when I have to change apps and stuff too because I can't feel vibrations  
+-maybe use notification system instead??  
+-overall, it was the concept I was looking for, but with noticeable flaws. Annoying to hold in hand, but vibration was not strong enough where I could feel it in my backpocket. I had some good moments tho, where it was nice to see I was supposed to be running, or to not have to look at my phone and be able to know when to run and when to walk. 5/10 success.  
+-dabble in the ability to change up run/walk times  
